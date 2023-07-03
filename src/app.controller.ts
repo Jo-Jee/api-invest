@@ -8,6 +8,6 @@ export class AppController {
   @Get('/ping')
   @HealthCheck()
   getPing() {
-    return this.healthCheckService.check([]);
+    return process.env.NODE_ENV;
   }
 }
