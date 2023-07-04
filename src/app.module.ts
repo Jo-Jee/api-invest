@@ -4,6 +4,7 @@ import { TerminusModule } from '@nestjs/terminus';
 import { InvestModule } from './invest/invest.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
     TerminusModule,
     InvestModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [],
