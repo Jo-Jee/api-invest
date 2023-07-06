@@ -5,16 +5,18 @@ import { InvestModule } from './invest/invest.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import config from './config/config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: [
-        'configs/.env',
-        `configs/.env.${process.env.NODE_ENV}.local`,
-        `configs/.env.${process.env.NODE_ENV}`,
+        'env/.env',
+        `env/.env.${process.env.NODE_ENV}.local`,
+        `env/.env.${process.env.NODE_ENV}`,
       ],
+      load: [config],
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
